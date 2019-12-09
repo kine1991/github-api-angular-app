@@ -7,9 +7,22 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ProfileComponent implements OnInit {
 
+  playerName
+
   constructor() { }
 
   ngOnInit() {
+  }
+
+
+  onKey(event) {
+    const inputValue = event.target.value;
+    console.log(inputValue)
+  }
+
+  search(){
+    console.log(this.playerName)
+    this.playerName = ''
   }
 
 }

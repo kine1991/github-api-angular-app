@@ -1,73 +1,18 @@
-<p>profile works!</p>
+<div class="profile-container">
+    <mat-toolbar class="header">
+        <span class="header__label">Github API</span>
+
+        <mat-form-field class="header__search">
+            <input matInput (keyup.enter)="onKey($event)" [(ngModel)]="playerName">
+            <button mat-icon-button matSuffix (click)="search()">
+                <mat-icon>search</mat-icon>
+            </button>
+        </mat-form-field>
+
+        <span class="header__xx"></span>
+    </mat-toolbar>
 
 
-<mat-toolbar color="primary">
-    <mat-toolbar-row>
-        <span>Custom Toolbar</span>
-    </mat-toolbar-row>
-
-</mat-toolbar>
-
-<mat-form-field>
-    <input matInput placeholder="Input">
-</mat-form-field>
-
-<hr>
-<mat-form-field appearance="outline">
-    <mat-label>Outline form field</mat-label>
-    <input matInput placeholder="Placeholder">
-    <mat-icon matSuffix>sentiment_very_satisfied</mat-icon>
-    <mat-hint>Hint</mat-hint>
-</mat-form-field>
-
-
-
-<hr>
-<hr>
-<hr>
-<div class="example-button-row">
-    <button mat-stroked-button>Basic</button>
-    <button mat-stroked-button color="primary">Primary</button>
-    <button mat-stroked-button color="accent">Accent</button>
-    <button mat-stroked-button color="warn">Warn</button>
-    <button mat-stroked-button disabled>Disabled</button>
-    <a mat-stroked-button routerLink=".">Link</a>
 </div>
 
 
-
-<h3>Flat Buttons</h3>
-<div class="example-button-row">
-    <button mat-flat-button>Basic</button>
-    <button mat-flat-button color="primary">Primary</button>
-    <button mat-flat-button color="accent">Accent</button>
-    <button mat-flat-button color="warn">Warn</button>
-    <button mat-flat-button disabled>Disabled</button>
-    <a mat-flat-button routerLink=".">Link</a>
-</div>
-
-<h3>Fab Buttons</h3>
-<div class="example-button-row">
-    <button mat-fab>Basic</button>
-    <button mat-fab color="primary">Primary</button>
-    <button mat-fab color="accent">Accent</button>
-    <button mat-fab color="warn">Warn</button>
-    <button mat-fab disabled>Disabled</button>
-    <button mat-fab aria-label="Example icon-button with a heart icon">
-        <mat-icon>favorite</mat-icon>
-    </button>
-    <a mat-fab routerLink=".">Link</a>
-</div>
-
-<h3>Mini Fab Buttons</h3>
-<div class="example-button-row">
-    <button mat-mini-fab>Basic</button>
-    <button mat-mini-fab color="primary">Primary</button>
-    <button mat-mini-fab color="accent">Accent</button>
-    <button mat-mini-fab color="warn">Warn</button>
-    <button mat-mini-fab disabled>Disabled</button>
-    <button mat-mini-fab aria-label="Example icon-button with a heart icon">
-        <mat-icon>favorite</mat-icon>
-    </button>
-    <a mat-mini-fab routerLink=".">Link</a>
-</div>
