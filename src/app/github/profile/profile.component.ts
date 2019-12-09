@@ -1,4 +1,12 @@
 import { Component, OnInit } from '@angular/core';
+import { HttpClient } from '@angular/common/http';
+import { environment } from 'src/environments/environment';
+
+interface ProfileResponse {
+  incomplete_results: boolean
+  items: []
+  total_count: number
+}
 
 @Component({
   selector: 'app-profile',
@@ -7,9 +15,12 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ProfileComponent implements OnInit {
 
-  playerName
+  name
+  profiles
 
-  constructor() { }
+  constructor(
+    private http: HttpClient
+  ) { }
 
   ngOnInit() {
   }
@@ -18,11 +29,16 @@ export class ProfileComponent implements OnInit {
   onKey(event) {
     const inputValue = event.target.value;
     console.log(inputValue)
+    event.target.value = ''
   }
 
   search(){
-    console.log(this.playerName)
-    this.playerName = ''
+    // console.log(this.name)
+    this.http.get<ProfileResponse>(`${environment.url}${this.name}`).subscribe(items => {
+      console.log(items.items)
+      this.profiles = items.items;
+    })
+    this.name = ''
   }
 
 }

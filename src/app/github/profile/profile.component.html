@@ -3,7 +3,7 @@
         <span class="header__label">Github API</span>
 
         <mat-form-field class="header__search">
-            <input matInput (keyup.enter)="onKey($event)" [(ngModel)]="playerName">
+            <input matInput (keyup.enter)="onKey($event)" [(ngModel)]="name">
             <button mat-icon-button matSuffix (click)="search()">
                 <mat-icon>search</mat-icon>
             </button>
@@ -12,7 +12,24 @@
         <span class="header__xx"></span>
     </mat-toolbar>
 
+    <div class="profile-content">
+        <div class="profile-content__sidebar">
+            <mat-list class="profile-content__list">
+                <!-- <div> -->
+                    <mat-list-item *ngFor="let profile of profiles" class="item"> 
+                        <div class="profile-content__image-container">
+                            <img class="image" [src]="profile.avatar_url" alt="">
+                        </div>
+                        <p class="profile-content__name">{{profile.login}}</p>
+                    </mat-list-item>
+                    <mat-divider></mat-divider>
+                <!-- </div> -->
+            </mat-list>
+        </div>
+        <div class="profile-content__body">
+            456
+        </div>
+    </div>
+
 
 </div>
-
-
