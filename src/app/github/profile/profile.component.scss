@@ -41,7 +41,7 @@
         background: #eef2f3;
         // background: #eef2f3;
         overflow: scroll;
-        padding: 1rem;
+        padding: 1rem 0;
     }
 
     &__body{
@@ -52,12 +52,14 @@
 
     &__list {
         display: flex;
-        margin: .5rem 0;
+        flex-direction: column;
+        // padding: .5rem 0;
         // background: chartreuse;
     }
 
     &__image-container{
         flex: 1;
+        // padding-top: 1rem;
         // display: flex;
         // justify-content: center;
         // align-items: center;
@@ -78,22 +80,6 @@
     &__name{
         flex: 3;
         margin-left: 1rem;
+        // padding: .3rem 0;
     }
 }
-
-mat-list-item{
-    margin: 1rem 0;
-}
-
-
-
-// .image{
-//     width: 100%;
-// }
-
-// .item{
-//     // display: flex;
-//     // justify-content: center;
-//     // align-items: center;
-//     background: chocolate;
-// }

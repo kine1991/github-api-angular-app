@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { environment } from 'src/environments/environment';
+import { ActivatedRoute } from '@angular/router';
 
 interface ProfileResponse {
   incomplete_results: boolean
@@ -17,12 +18,18 @@ export class ProfileComponent implements OnInit {
 
   name
   profiles
+  username
 
   constructor(
-    private http: HttpClient
+    private http: HttpClient,
+    private route: ActivatedRoute,
   ) { }
 
   ngOnInit() {
+    this.route.queryParamMap.subscribe((params) => {
+      // console.log(params.get('username'))
+      this.username = params.get('username')
+    })
   }
 
 

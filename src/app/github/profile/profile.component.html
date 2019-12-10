@@ -16,20 +16,23 @@
         <div class="profile-content__sidebar">
             <mat-list class="profile-content__list">
                 <!-- <div> -->
-                    <mat-list-item *ngFor="let profile of profiles" class="item"> 
+                    <!-- <a [routerLink]="['/']" [queryParams]="{ username: 2 }" routerLinkActive="router-link-active" >fddf</a> -->
+                    <mat-list-item *ngFor="let profile of profiles" class="item" [routerLink]="['/']" [queryParams]="{ username: profile.login }"> 
                         <div class="profile-content__image-container">
                             <img class="image" [src]="profile.avatar_url" alt="">
                         </div>
                         <p class="profile-content__name">{{profile.login}}</p>
+                        <mat-divider></mat-divider>
                     </mat-list-item>
-                    <mat-divider></mat-divider>
                 <!-- </div> -->
             </mat-list>
         </div>
         <div class="profile-content__body">
-            456
+                {{username}}
         </div>
     </div>
 
 
 </div>
+
+<!-- <pre>{{profiles | json}}</pre> -->
