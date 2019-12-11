@@ -1,0 +1,33 @@
+<div class="profile-body">
+    <div class="profile-body__user">
+        <div class="spinner-container" *ngIf="!profile && isLoadingProfile">
+            <mat-spinner></mat-spinner>
+        </div>
+        <div class="user" *ngIf="profile">
+            <div class="image-container">
+                <img [src]="profile.avatar_url" alt="">
+            </div>
+            <p>{{profile.login}}</p>
+            <p>{{profile.name}}</p>
+            <p>{{profile.location}}</p>
+        </div>
+    </div>
+    <div class="profile-body__repos">
+        <div class="spinner-container" *ngIf="!repos && isLoadingRepo">
+            <mat-spinner></mat-spinner>
+        </div>
+        <mat-list>
+            <mat-list-item *ngFor="let repo of repos">
+                <mat-icon matListIcon>folder</mat-icon>
+                <h3 matLine> {{repo.name}} </h3>
+                <p matLine>
+                    <span> {{repo.description | slice:0:40}} </span>
+                    <!-- <span> {{repo.language}} </span> -->
+                    <!-- <span *ngIf="repo.description" class="demo-2"> -- {{repo.description | slice:0:40}} </span> -->
+                </p>
+            </mat-list-item>
+        </mat-list>
+    </div>
+
+</div>
+<!-- <pre> qq {{profile | json}}</pre> -->

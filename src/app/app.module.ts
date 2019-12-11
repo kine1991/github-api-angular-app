@@ -8,11 +8,15 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { AngularMaterialModule } from './angular-material.module';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
+import { ProfileContentComponent } from './github/profile-content/profile-content.component';
+import { ProfileBodyComponent } from './github/profile-body/profile-body.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    ProfileComponent
+    ProfileComponent,
+    ProfileContentComponent,
+    ProfileBodyComponent
   ],
   imports: [
     BrowserModule,

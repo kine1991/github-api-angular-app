@@ -1,34 +1,33 @@
 <div class="profile-container">
     <mat-toolbar class="header">
         <span class="header__label">Github API</span>
-
         <mat-form-field class="header__search">
             <input matInput (keyup.enter)="onKey($event)" [(ngModel)]="name">
             <button mat-icon-button matSuffix (click)="search()">
                 <mat-icon>search</mat-icon>
             </button>
         </mat-form-field>
-
         <span class="header__xx"></span>
     </mat-toolbar>
 
     <div class="profile-content">
         <div class="profile-content__sidebar">
-            <mat-list class="profile-content__list">
-                <!-- <div> -->
-                    <!-- <a [routerLink]="['/']" [queryParams]="{ username: 2 }" routerLinkActive="router-link-active" >fddf</a> -->
-                    <mat-list-item *ngFor="let profile of profiles" class="item" [routerLink]="['/']" [queryParams]="{ username: profile.login }"> 
-                        <div class="profile-content__image-container">
-                            <img class="image" [src]="profile.avatar_url" alt="">
-                        </div>
-                        <p class="profile-content__name">{{profile.login}}</p>
-                        <mat-divider></mat-divider>
-                    </mat-list-item>
-                <!-- </div> -->
+            <div class="spinner-container" *ngIf="!profiles && isLoading">
+                <mat-spinner></mat-spinner>
+            </div>
+            <mat-list class="profile-content__list" *ngIf="profiles">
+                <mat-list-item *ngFor="let profile of profiles" [routerLink]="['/']" (click)="getProfile(profile)" [queryParams]="{ username: profile.login }"> 
+                    <div class="profile-content__image-container">
+                        <img class="image" [src]="profile.avatar_url" alt="">
+                    </div>
+                    <p class="profile-content__name">{{profile.login}}</p>
+                    <mat-divider></mat-divider>
+                </mat-list-item>
             </mat-list>
         </div>
         <div class="profile-content__body">
-                {{username}}
+            <!-- {{username}} -->
+            <app-profile-body></app-profile-body>
         </div>
     </div>
 

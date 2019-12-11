@@ -1,13 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { environment } from 'src/environments/environment';
 import { ActivatedRoute } from '@angular/router';
 
-interface ProfileResponse {
-  incomplete_results: boolean
-  items: []
-  total_count: number
-}
+import { GithubService } from '../github.service';
 
 @Component({
   selector: 'app-profile',
@@ -19,15 +14,17 @@ export class ProfileComponent implements OnInit {
   name
   profiles
   username
+  singleProfile
+  isLoading = false
+  isLoadingBody
 
   constructor(
-    private http: HttpClient,
     private route: ActivatedRoute,
+    private githubService: GithubService
   ) { }
 
   ngOnInit() {
     this.route.queryParamMap.subscribe((params) => {
-      // console.log(params.get('username'))
       this.username = params.get('username')
     })
   }
@@ -35,17 +32,29 @@ export class ProfileComponent implements OnInit {
 
   onKey(event) {
     const inputValue = event.target.value;
-    console.log(inputValue)
+    this.isLoading = true
+    this.githubService.searchProfiles(inputValue)
+    .subscribe(items => {
+      this.profiles = items.items;
+      this.isLoading = false;
+    })
     event.target.value = ''
   }
 
   search(){
-    // console.log(this.name)
-    this.http.get<ProfileResponse>(`${environment.url}${this.name}`).subscribe(items => {
-      console.log(items.items)
+    this.isLoading = true
+    this.githubService.searchProfiles(this.name)
+    .subscribe(items => {
       this.profiles = items.items;
+      this.isLoading = false;
     })
     this.name = ''
   }
 
+  getProfile(profile){
+    this.singleProfile = profile
+    // console.log(profile)
+  }
+
 }
+

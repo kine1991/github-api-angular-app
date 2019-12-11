@@ -1,0 +1,43 @@
+.profile-body{
+    border: 1px solid black;
+    height: 100%;
+    display: flex;
+
+    &__user{
+        flex: 1;
+        // background: #456794;
+    }
+
+    &__repos{
+        flex: 2;
+        // background: #416194;
+        overflow: scroll;
+    }
+}
+
+
+
+.image-container{
+    // width: 200px;
+    // height: 200px;
+
+    & > img {
+        width: 100%;
+    }
+}
+
+.user{
+    padding: 1rem;
+}
+
+.demo-2{
+    // width: 100px;
+    background: #987888;
+}
+
+.spinner-container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+}
