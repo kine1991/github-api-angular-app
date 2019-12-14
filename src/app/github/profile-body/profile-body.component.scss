@@ -39,12 +39,10 @@
 
 .user{
     @media (max-width: 760px) {
-        // padding: 1rem;
         display: flex;
         flex-direction: row;
     }
     @media (max-width: 600px) {
-        // flex-direction: column;
     }
 }
 

@@ -1,23 +1,23 @@
 <div class="profile-body">
     <div class="profile-body__user">
         <div class="spinner-container" *ngIf="!profile && isLoadingProfile">
-            <mat-spinner></mat-spinner>
+            <mat-spinner  [diameter]="40"></mat-spinner>
         </div>
         <div class="user" *ngIf="profile">
 
             <div class="image-container">
                 <img [src]="profile.avatar_url" alt="">
             </div>
-            <div class="text-container">
-                <p class="mat-small" >{{profile.login}}</p>
-                <p class="mat-small">{{profile.name}}</p>
-                <p class="mat-small">{{profile.location}}</p>
-            </div>
+            <mat-list class="text-container">
+                <mat-list-item>{{profile.login}}<mat-divider></mat-divider></mat-list-item>
+                <mat-list-item>{{profile.name}}<mat-divider></mat-divider></mat-list-item>
+                <mat-list-item>{{profile.location}}<mat-divider></mat-divider></mat-list-item>
+            </mat-list>
         </div>
     </div>
     <div class="profile-body__repos">
         <div class="spinner-container" *ngIf="!repos && isLoadingRepo">
-            <mat-spinner></mat-spinner>
+            <mat-spinner color="warn" [diameter]="40"></mat-spinner>
         </div>
         <mat-list>
             <mat-list-item *ngFor="let repo of repos">
@@ -31,3 +31,10 @@
     </div>
 
 </div>
+
+<!-- ng build --prod --base-href https://kine1991.github.io/github-api-angular-app
+
+ngh --dir dist/github-api-angular-app
+
+ng build --prod --base-href "https://kine1991.github.io/github-api-angular-app/"
+ngh --dir=dist/github-api-angular-app -->
